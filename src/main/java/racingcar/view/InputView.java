@@ -14,6 +14,10 @@ public class InputView {
     public CarName[] inputCarNames() {
         return CarNameParser.parseCarNames(sc.nextLine());
     }
+
+    public int inputRound() {
+        return sc.nextInt();
+    }
 }
 
 
