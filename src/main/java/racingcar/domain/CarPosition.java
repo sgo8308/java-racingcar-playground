@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-public class CarPosition {
+public class CarPosition implements Comparable<CarPosition> {
 
     int position;
 
@@ -20,6 +20,11 @@ public class CarPosition {
 
     public void addPosition() {
         position++;
+    }
+
+    @Override
+    public int compareTo(CarPosition o) {
+        return Integer.compare(this.position, o.position);
     }
 
     @Override
