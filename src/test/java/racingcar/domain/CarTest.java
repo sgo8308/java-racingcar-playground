@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import java.lang.reflect.Field;
-import java.util.Random;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,15 +8,14 @@ class CarTest {
     @Test
     void move() {
         //given
-        CarPosition carPosition = new CarPosition();
-        Car car = new Car(new CarName("name"), carPosition);
+        CarPosition firstCarPosition = CarPosition.fromStartPosition();
+        Car car = new Car(new CarName("name"), firstCarPosition);
 
         //when
         car.move();
-        CarPosition expectedCarPosition = new CarPosition();
-        expectedCarPosition.addPosition();
+        CarPosition expectedCarPosition = CarPosition.fromCustomPosition(1);
 
         //then
-        Assertions.assertThat(carPosition).isEqualTo(expectedCarPosition);
+        Assertions.assertThat(firstCarPosition).isEqualTo(expectedCarPosition);
     }
 }
