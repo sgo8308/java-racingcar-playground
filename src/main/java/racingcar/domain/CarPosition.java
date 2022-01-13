@@ -43,4 +43,13 @@ public class CarPosition implements Comparable<CarPosition> {
     public int hashCode() {
         return Objects.hash(position);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder positionString = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            positionString.append("-");
+        }
+        return positionString.toString();
+    }
 }
