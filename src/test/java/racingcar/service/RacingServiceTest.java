@@ -8,11 +8,12 @@ import racingcar.domain.CarName;
 import racingcar.domain.CarPosition;
 import racingcar.domain.Cars;
 import racingcar.domain.MovePoint;
+import racingcar.domain.Round;
 
 class RacingServiceTest {
 
     @Test
-    void race_주어진_수만큼_레이싱을_해야_한다() {
+    void race_주어진_라운드만큼_레이싱을_해야_한다() {
         //given
         Car car = new Car(new CarName("name"), CarPosition.fromStartPosition()) {
             @Override
@@ -22,10 +23,10 @@ class RacingServiceTest {
         };
 
         Cars cars = new Cars(Arrays.asList(car));
-        RacingService racingService = new RacingService(cars);
+        RacingService racingService = new RacingService(cars, new Round(3));
 
         //when
-        racingService.race(3);
+        racingService.race();
         Car expectedCar = new Car(new CarName("name"), CarPosition.fromCustomPosition(3));
         boolean isSamePosition = car.isSamePositionAs(expectedCar);
 

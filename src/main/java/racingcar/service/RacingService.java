@@ -1,18 +1,24 @@
 package racingcar.service;
 
 import racingcar.domain.Cars;
+import racingcar.domain.Round;
+import racingcar.view.OutputView;
 
 public class RacingService {
 
-    private Cars cars;
+    Cars cars;
+    Round round;
 
-    public RacingService(Cars cars) {
+    public RacingService(Cars cars, Round round) {
         this.cars = cars;
+        this.round = round;
     }
 
-    public void race(int count) {
-        for (int i = 0; i < count; i++) {
-            cars.move();
+    public void race() {
+        while (!round.isEnd()) {
+            cars.moveAndPrintCarNameAndPosition();
+            OutputView.printBlank();
+            round.nextRound();
         }
     }
 }
