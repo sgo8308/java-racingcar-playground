@@ -1,7 +1,9 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.stream.Stream;
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -33,6 +35,36 @@ class CarTest {
         car.moveIfpossilble(movePoint);
 
         //then
-        Assertions.assertThat(actualCarPosition).isEqualTo(expectedPosition);
+        assertThat(actualCarPosition).isEqualTo(expectedPosition);
+    }
+
+    @Test
+    void equals_이름과_포지션이_같으면_같다() {
+        //given
+        Car car1 = new Car(new CarName("name"), CarPosition.fromStartPosition());
+        Car car2 = new Car(new CarName("name"), CarPosition.fromStartPosition());
+
+        //when
+        boolean isSame = car1.equals(car2);
+
+        //then
+        assertThat(isSame).isTrue();
+    }
+
+    @Test
+    void equals_CarPosition의_생성_방식이_서로_달라도_이름과_위치가_같으면_같다() {
+        //given
+        Car car1 = new Car(new CarName("name"), CarPosition.fromStartPosition());
+        Car car2 = new Car(new CarName("name"), CarPosition.fromCustomPosition(3));
+
+        //when
+        car1.moveIfpossilble(MovePoint.from(5));
+        car1.moveIfpossilble(MovePoint.from(5));
+        car1.moveIfpossilble(MovePoint.from(5));
+
+        boolean isSame = car1.equals(car2);
+
+        //then
+        assertThat(isSame).isTrue();
     }
 }
