@@ -38,11 +38,11 @@ ex) git checkout -b apply-feedback
  - [ ] 전체적인 게임 진행하기
 
 ### 객체 설계
- - Driver : 자동차를 움직이는 책임
- - Car : 자동차에 관한 책임
- - OutputView : 출력 책임
- - InputView : 입력 책임
- - Cars : 자동차 리스트의 일급 컬렉션
- - Referee : 최종 우승자 선정 책임
- - PlayResult : 최종 결과에 대한 책임
- - Application : 게임 전체적인 진행에 대한 책임
+
+- Car : 자동차를 움직이는 책임
+- Cars : 자동차 전체를 움직이는 책임
+- CarNames : 자동차를 만드는 책임
+- RacingService : 레이싱을 진행하는 책임
+- OutputView : 출력 책임
+- InputView : 입력 책임
+- Application : 게임 전체적인 진행에 대한 책임
