@@ -64,4 +64,25 @@ public class Cars {
     public int hashCode() {
         return Objects.hash(cars);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder string = new StringBuilder();
+        for (int i = 0; i < cars.size(); i++) {
+            string.append(cars.get(i).toString());
+            appendCommaIfNeeded(string, i);
+        }
+        return string.toString();
+    }
+
+    private void appendCommaIfNeeded(StringBuilder string, int order) {
+        if (isLastCar(order)) {
+            return;
+        }
+        string.append(", ");
+    }
+
+    private boolean isLastCar(int order) {
+        return order == cars.size() - 1;
+    }
 }

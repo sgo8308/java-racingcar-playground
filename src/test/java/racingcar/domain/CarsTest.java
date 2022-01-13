@@ -67,4 +67,35 @@ class CarsTest {
         assertThat(isEqualWithExpectedCars).isTrue();
         assertThat(isEqualWithExpectedCarsReversOrder).isTrue();
     }
+
+    @Test
+    void toString_담겨_있는_자동차가_여러개면_자동차_이름을_쉼표로_구분해서_반환() {
+        //given
+        Car car1 = new Car(new CarName("name1"), CarPosition.fromStartPosition());
+        Car car2 = new Car(new CarName("name2"), CarPosition.fromStartPosition());
+
+        Cars cars = new Cars(Arrays.asList(car1, car2));
+
+        //when
+        String actualString = cars.toString();
+        String expectedString = "name1, name2";
+
+        //then
+        assertThat(actualString).hasToString(expectedString);
+    }
+
+    @Test
+    void toString_담겨_있는_자동차가_하나면_자동차_이름을_반환() {
+        //given
+        Car car1 = new Car(new CarName("name1"), CarPosition.fromStartPosition());
+
+        Cars cars = new Cars(Arrays.asList(car1));
+
+        //when
+        String actualString = cars.toString();
+        String expectedString = "name1";
+
+        //then
+        assertThat(actualString).hasToString(expectedString);
+    }
 }
