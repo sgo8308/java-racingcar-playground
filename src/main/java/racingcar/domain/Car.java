@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.Objects;
+import racingcar.view.OutputView;
 
 public class Car implements Comparable<Car> {
 
@@ -16,6 +17,10 @@ public class Car implements Comparable<Car> {
         if (movePoint.canMove()) {
             position.addPosition();
         }
+    }
+
+    public void printCarNameAndPosition() {
+        OutputView.printCarNameAndPosition(name.toString(), position.toString());
     }
 
     @Override
