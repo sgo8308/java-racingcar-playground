@@ -13,10 +13,11 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void move() {
+    public void moveAndPrintCarNameAndPosition() {
         for (Car car : cars) {
             MovePoint movePoint = RandomMovePointCreator.createMovePoint();
             car.moveIfpossilble(movePoint);
+            car.printCarNameAndPosition();
         }
     }
 
