@@ -4,17 +4,16 @@ import java.util.Scanner;
 
 public class InputView {
 
-    Scanner sc;
+    private static Scanner sc = new Scanner(System.in);
 
-    public InputView(Scanner sc) {
-        this.sc = sc;
+    private InputView() {
     }
 
-    public String inputCarNames() {
+    public static String inputCarNames() {
         return sc.nextLine();
     }
 
-    public int inputRound() {
+    public static int inputRound() {
         return sc.nextInt();
     }
 }
