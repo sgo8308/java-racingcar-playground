@@ -13,6 +13,13 @@ public class Cars {
         this.cars = cars;
     }
 
+    public void move() {
+        for (Car car : cars) {
+            MovePoint movePoint = RandomMovePointCreator.createMovePoint();
+            car.moveIfpossilble(movePoint);
+        }
+    }
+
     public Cars findWinCars() {
         Car winCar = findWinCar();
         return findCarsAtSamePosition(winCar);
