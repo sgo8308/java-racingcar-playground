@@ -12,8 +12,10 @@ public class Car implements Comparable<Car> {
         this.position = position;
     }
 
-    public void move() {
-        position.addPosition();
+    public void moveIfpossilble(MovePoint movePoint) {
+        if (movePoint.canMove()) {
+            position.addPosition();
+        }
     }
 
     @Override
