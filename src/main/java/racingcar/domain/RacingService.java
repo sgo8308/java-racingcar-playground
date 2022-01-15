@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class RacingService {
 
     public RacingService(String carNames, String totalRound) {
@@ -14,7 +16,7 @@ public class RacingService {
 
     }
 
-    public CarsDTO getCarsDTO() {
+    public List<CarDTO> getCarsDTO() {
         return null;
     }
 
