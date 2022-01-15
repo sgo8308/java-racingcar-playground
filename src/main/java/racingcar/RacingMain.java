@@ -8,7 +8,7 @@ public class RacingMain {
 
     public static void main(String[] args) {
         String carNames = InputView.getCarNames();
-        String totalRound = InputView.getTotalRound();
+        int totalRound = InputView.getTotalRound();
         RacingService racingService = new RacingService(carNames, totalRound);
         while (!racingService.isEnd()) {
             racingService.race();

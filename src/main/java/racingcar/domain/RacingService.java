@@ -4,7 +4,7 @@ import java.util.List;
 
 public class RacingService {
 
-    public RacingService(String carNames, String totalRound) {
+    public RacingService(String carNames, int totalRound) {
 
     }
 
