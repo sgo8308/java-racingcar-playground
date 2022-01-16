@@ -5,6 +5,11 @@ public class CarDTO {
     String name;
     int position;
 
+    public CarDTO(String name, int position) {
+        this.name = name;
+        this.position = position;
+    }
+
     public int getPosition() {
         return position;
     }
