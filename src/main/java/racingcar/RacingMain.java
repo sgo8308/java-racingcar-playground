@@ -10,9 +10,11 @@ public class RacingMain {
         String carNames = InputView.getCarNames();
         int totalRound = InputView.getTotalRound();
         RacingService racingService = new RacingService(carNames, totalRound);
-        while (!racingService.isEnd()) {
+        int round = 0;
+        while (!racingService.isEnd(round)) {
             racingService.race();
             OutputView.printCarNamesAndPosition(racingService.getCarsDTO());
+            round++;
         }
         OutputView.printWinners(racingService.getWinnersDTO());
     }
