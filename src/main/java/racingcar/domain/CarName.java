@@ -7,7 +7,14 @@ public class CarName {
     String name;
 
     public CarName(String s) {
+        validation(s);
         this.name = s;
+    }
+
+    public void validation(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("이름은 5자를 초과하면 안됩니다.");
+        }
     }
 
     @Override
