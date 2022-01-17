@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class CarName {
 
-    String name;
+    private final String name;
 
     public CarName(String s) {
         validation(s);
