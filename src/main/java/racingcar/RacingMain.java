@@ -12,12 +12,13 @@ public class RacingMain {
         int totalRound = InputView.getTotalRound();
         RacingService racingService = new RacingService(carNames, totalRound,
                 new RandomMovingRule());
+
         int round = 0;
-        while (!racingService.isEnd(round)) {
+        while (!racingService.isEnd(round++)) {
             racingService.race();
             OutputView.printCarNamesAndPosition(racingService.getCarsDTO());
-            round++;
         }
+
         OutputView.printWinners(racingService.getWinnersDTO());
     }
 }
