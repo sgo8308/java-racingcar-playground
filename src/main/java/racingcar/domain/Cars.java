@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,6 +16,14 @@ public class Cars {
         for (Car car : cars) {
             car.move(rule);
         }
+    }
+
+    public List<CarDTO> getCarDTOs() {
+        ArrayList<CarDTO> carDTOS = new ArrayList<>();
+        for (Car car : cars) {
+            carDTOS.add(car.getCarDTO());
+        }
+        return carDTOS;
     }
 
     @Override
