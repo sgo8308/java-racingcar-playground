@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private CarName name;
     private CarPosition position;
@@ -23,6 +23,11 @@ public class Car {
     }
 
     @Override
+    public int compareTo(Car o) {
+        return position.compareTo(o.position);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -39,4 +44,5 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name, position);
     }
+
 }
