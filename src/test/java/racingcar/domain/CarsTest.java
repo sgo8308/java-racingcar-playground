@@ -24,4 +24,20 @@ class CarsTest {
         //then
         Assertions.assertThat(cars).isEqualTo(expectedCars);
     }
+
+    @Test
+    void getWinnersDTO() {
+        //given
+        Car jiwoo = new Car(new CarName("jiwoo"), new CarPosition(5));
+        Car soho = new Car(new CarName("soho"), new CarPosition(3));
+        Car shy = new Car(new CarName("shy"), new CarPosition(5));
+
+        Cars cars = new Cars(Arrays.asList(jiwoo, soho, shy));
+
+        //when
+        WinnersDTO winnersDTO = cars.getWinnersDTO();
+        WinnersDTO expected = new WinnersDTO(Arrays.asList("jiwoo", "shy"));
+        //then
+        Assertions.assertThat(winnersDTO).isEqualTo(expected);
+    }
 }

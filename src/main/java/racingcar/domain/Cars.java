@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -26,6 +27,25 @@ public class Cars {
         return carDTOS;
     }
 
+    public WinnersDTO getWinnersDTO() {
+        return new WinnersDTO(getCarNamesAtWinnerPosition(getWinnerCar()));
+    }
+
+    private List<String> getCarNamesAtWinnerPosition(Car winnerCar) {
+        return cars.stream()
+                .filter(car -> isAtSamePosition(car, winnerCar))
+                .map(car -> car.getCarDTO().getName())
+                .collect(Collectors.toList());
+    }
+
+    private boolean isAtSamePosition(Car winnerCar, Car car) {
+        return car.compareTo(winnerCar) == 0;
+    }
+
+    private Car getWinnerCar() {
+        return cars.stream().max(Car::compareTo).get();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -42,4 +62,6 @@ public class Cars {
     public int hashCode() {
         return Objects.hash(cars);
     }
+
+
 }
