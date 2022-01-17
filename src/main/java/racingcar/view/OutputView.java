@@ -11,8 +11,8 @@ public class OutputView {
         for (int i = 0; i < carDTOs.size(); i++) {
             CarDTO carDTO = carDTOs.get(i);
             message = carDTO.getName() + " : " + getPositionString(carDTO);
+            System.out.println(message);
         }
-        System.out.println(message);
     }
 
     private static String getPositionString(CarDTO carDTO) {
