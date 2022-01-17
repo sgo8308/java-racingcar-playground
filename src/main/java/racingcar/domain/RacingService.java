@@ -9,10 +9,10 @@ public class RacingService {
     MovingRule rule;
 
     public RacingService(String carNames, int totalRound,
-            RandomMovingRule randomMovingRule) {
+            MovingRule movingRule) {
         readyCars(carNames);
         setRound(totalRound);
-        rule = randomMovingRule;
+        rule = movingRule;
     }
 
     private void readyCars(String carNames) {
@@ -33,7 +33,7 @@ public class RacingService {
     }
 
     public List<CarDTO> getCarsDTO() {
-        return null;
+        return cars.getCarDTOs();
     }
 
     public WinnersDTO getWinnersDTO() {
