@@ -34,4 +34,8 @@ public class CarPosition {
     public void addPosition() {
         position++;
     }
+
+    public int compareTo(CarPosition opponent) {
+        return Integer.compare(this.position, opponent.position);
+    }
 }
