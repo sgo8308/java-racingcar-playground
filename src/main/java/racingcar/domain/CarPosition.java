@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class CarPosition {
 
-    int position;
+    private int position;
 
     public CarPosition(int position) {
         this.position = position;
