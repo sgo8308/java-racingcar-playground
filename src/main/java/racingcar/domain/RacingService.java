@@ -15,6 +15,12 @@ public class RacingService {
         rule = movingRule;
     }
 
+    public RacingService(Cars cars, int totalRound, MovingRule movingRule) {
+        this.cars = cars;
+        setRound(totalRound);
+        rule = movingRule;
+    }
+
     private void readyCars(String carNames) {
         List<CarName> carNameList = CarNameParser.parseCarNames(carNames);
         cars = CarService.createCars(carNameList);
@@ -37,6 +43,6 @@ public class RacingService {
     }
 
     public WinnersDTO getWinnersDTO() {
-        return null;
+        return cars.getWinnersDTO();
     }
 }
