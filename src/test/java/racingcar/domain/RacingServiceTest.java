@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -22,5 +23,22 @@ class RacingServiceTest {
                 .isEqualTo(jiwoo.getCarDTO().getPosition());
         Assertions.assertThat(carsDTOs.get(1).getPosition())
                 .isEqualTo(seungho.getCarDTO().getPosition());
+    }
+
+    @Test
+    void getWinnersDTO_우승자들의_이름이_들어있는_WinnersDTO를_반환한다() {
+        //given
+        Car jiwoo = new Car(new CarName("jiwoo"), new CarPosition(0));
+        Car soho = new Car(new CarName("soho"), new CarPosition(1));
+        Car shy = new Car(new CarName("shy"), new CarPosition(1));
+        Cars cars = new Cars(Arrays.asList(jiwoo, soho, shy));
+
+        //when
+        RacingService racingService = new RacingService(cars, 1, () -> true);
+        WinnersDTO winnersDTO = racingService.getWinnersDTO();
+        WinnersDTO expected = new WinnersDTO(Arrays.asList("soho", "shy"));
+
+        //then
+        Assertions.assertThat(winnersDTO).isEqualTo(expected);
     }
 }
