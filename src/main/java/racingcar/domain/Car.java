@@ -12,8 +12,14 @@ public class Car {
         this.position = position;
     }
 
+    public void move(MovingRule rule) {
+        if (rule.canMove()) {
+            position.addPosition();
+        }
+    }
+
     public CarDTO getCarDTO() {
-        return new CarDTO(name, position);
+        return new CarDTO(name.getName(), position.getPosition());
     }
 
     @Override

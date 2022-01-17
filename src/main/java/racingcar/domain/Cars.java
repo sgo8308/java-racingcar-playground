@@ -11,6 +11,12 @@ public class Cars {
         this.cars = carList;
     }
 
+    public void move(MovingRule rule) {
+        for (Car car : cars) {
+            car.move(rule);
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -27,5 +33,4 @@ public class Cars {
     public int hashCode() {
         return Objects.hash(cars);
     }
-
 }
