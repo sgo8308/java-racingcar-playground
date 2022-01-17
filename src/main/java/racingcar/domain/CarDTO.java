@@ -19,7 +19,7 @@ public class CarDTO {
     }
 
     public String getName() {
-        return null;
+        return name;
     }
 
     public void setName(String name) {
